@@ -2603,6 +2603,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Finbuckle.MultiTenant": "9.0.0",
           "Finbuckle.MultiTenant.EntityFrameworkCore": "9.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.8",
           "Microsoft.EntityFrameworkCore": "9.0.0",
