@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using ModusoftCRM.Domain.Common;
 
-namespace ModusoftCRM.Application.Features.Categories.CreateCategory
+namespace ModusoftCRM.Application.Features.Categories.Commands.Add
 {
-    internal class CategoryAddCommand
+    public class CategoryAddCommand : IRequest<Response<int>>
     {
+        public string Name { get; set; }
+        public string? Description { get; set; }
     }
 }
