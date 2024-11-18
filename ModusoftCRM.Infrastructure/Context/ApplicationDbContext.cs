@@ -12,6 +12,8 @@ namespace ModusoftCRM.Infrastructure.Context
         {
         }
 
+        public DbSet<Category> Categories { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(typeof(DependencyInjection).Assembly);
