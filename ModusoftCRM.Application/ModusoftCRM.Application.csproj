@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ModusoftCRM.Domain\ModusoftCRM.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Categories\Queries\GetById\" />
+  </ItemGroup>
+
 </Project>
