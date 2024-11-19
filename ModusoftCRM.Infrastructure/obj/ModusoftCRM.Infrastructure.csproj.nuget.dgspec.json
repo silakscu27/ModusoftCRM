@@ -219,9 +219,21 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Finbuckle.MultiTenant": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Finbuckle.MultiTenant.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

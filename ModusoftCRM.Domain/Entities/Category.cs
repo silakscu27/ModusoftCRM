@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ModusoftCRM.Domain.Common;
 
 namespace ModusoftCRM.Domain.Entities
 {
-    internal class Category
+    public class Category : EntityBase<int>
     {
+        public string Name { get; set; } = string.Empty;
+        public string? Description { get; set; }
+
+        //public ICollection<Product>? Products { get; set; }
     }
 }
