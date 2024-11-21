@@ -5,9 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using ModusoftCRM.Application.Common.Interfaces;
 using ModusoftCRM.Domain.Entities;
 using ModusoftCRM.Infrastructure.Context;
 using ModusoftCRM.Infrastructure.Options;
+using ModusoftCRM.Infrastructure.Services;
 using Scrutor;
 using System.Reflection;
 
@@ -17,13 +19,16 @@ namespace ModusoftCRM.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            // DbContext yapılandırması
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("SqlServer"));
             });
 
-            services.AddScoped<IUnitOfWork>(srv => srv.GetRequiredService<ApplicationDbContext>());
+            // IUnitOfWork kaydı
+            //services.AddScoped<IUnitOfWork>(srv => srv.GetRequiredService<ApplicationDbContext>());
 
+            // Identity yapılandırması
             services
                 .AddIdentity<AppUser, IdentityRole<Guid>>(cfr =>
                 {
@@ -40,6 +45,7 @@ namespace ModusoftCRM.Infrastructure
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            // Jwt ayarları
             services.Configure<JwtOptions>(configuration.GetSection("Jwt"));
             services.ConfigureOptions<JwtTokenOptionsSetup>();
             services.AddAuthentication(options =>
@@ -48,6 +54,10 @@ namespace ModusoftCRM.Infrastructure
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer();
             services.AddAuthorization();
+
+            // ITenantService ve IApplicationDbContext için kayıtlar
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+            services.AddScoped<ITenantService, TenantService>();
 
             services.Scan(action =>
             {
@@ -60,11 +70,10 @@ namespace ModusoftCRM.Infrastructure
                 .WithScopedLifetime();
             });
 
-
+            // HealthCheck yapılandırması
             services.AddHealthChecks()
-            .AddCheck("health-check", () => HealthCheckResult.Healthy())
-            .AddDbContextCheck<ApplicationDbContext>()
-            ;
+                .AddCheck("health-check", () => HealthCheckResult.Healthy())
+                .AddDbContextCheck<ApplicationDbContext>();
 
             return services;
         }
