@@ -2,17 +2,36 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ModusoftCRM.Application.Common.Interfaces;
 using ModusoftCRM.Domain.Entities;
 
 namespace ModusoftCRM.Infrastructure.Context
 {
-    internal sealed class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>, IUnitOfWork
+    internal sealed class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>, IApplicationDbContext
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        private readonly ITenantService _tenantService;
+
+        public ApplicationDbContext(DbContextOptions options, ITenantService tenantService) : base(options)
         {
+            _tenantService = tenantService;
         }
 
         public DbSet<Category> Categories { get; set; }
+
+        public async Task<IApplicationDbContext> GetDbInstance(string tenantIdentifier, CancellationToken cancellationToken)
+        {
+            return await _tenantService.GetDbInstance(tenantIdentifier, cancellationToken);
+        }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return await base.SaveChangesAsync(cancellationToken);
+        }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
