@@ -4,7 +4,7 @@ namespace ModusoftCRM.Application.Common.Interfaces
 {
     public interface ICurrentUserService
     {
-        string? UserId { get; }
-        ModuSoftTenantInfo? ModuSoftTenantInfo { get; }
+        string? UserId { get; } 
+        ModuSoftTenantInfo? ModuSoftTenantInfo { get; } 
     }
 }
