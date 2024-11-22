@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ModusoftCRM.Application.Features.Categories.Commands.Add;
+using ModusoftCRM.Application.Features.Categories.Commands.Update;
 using ModusoftCRM.Domain.Entities;
 
 namespace ModusoftCRM.Application.Mapping
@@ -9,6 +10,7 @@ namespace ModusoftCRM.Application.Mapping
         public MappingProfile()
         {
             CreateMap<CategoryAddCommand, Category>();
+            CreateMap<CategoryUpdateCommand, Category>();
         }
     }
 }
