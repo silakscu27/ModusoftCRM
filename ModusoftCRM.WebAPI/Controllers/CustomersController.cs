@@ -18,6 +18,12 @@ namespace ModusoftCRM.WebApi.Controllers
             return Ok(response);
         }
 
-     
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync(CustomerUpdateCommand request, CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
+        }
+
     }
 }
