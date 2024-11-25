@@ -12,7 +12,9 @@ namespace ModusoftCRM.Application.Mapping
         {
             CreateMap<CategoryAddCommand, Category>();
             CreateMap<CategoryUpdateCommand, Category>();
+
             CreateMap<CustomerAddCommand, Customer>();
+            CreateMap<CustomerUpdateCommand, Customer>();
         }
     }
 }
