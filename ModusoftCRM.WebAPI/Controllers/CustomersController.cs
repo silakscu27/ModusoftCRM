@@ -1,6 +1,7 @@
 ﻿using CRM.Application.Customers.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ModusoftCRM.Application.Features.Customers.Queries.GetAll;
 using ModusoftCRM.WebAPI.Abstractions;
 
 namespace ModusoftCRM.WebApi.Controllers
@@ -23,6 +24,13 @@ namespace ModusoftCRM.WebApi.Controllers
         {
             var response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken)
+        {
+            var customers = await _mediator.Send(new CustomerGetAllQuery(), cancellationToken);
+            return Ok(customers); 
         }
 
     }
