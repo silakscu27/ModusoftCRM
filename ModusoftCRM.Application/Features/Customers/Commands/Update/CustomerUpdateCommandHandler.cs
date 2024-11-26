@@ -7,7 +7,7 @@ using ModusoftCRM.Domain.Entities;
 
 namespace CRM.Application.Features.Customers.Commands.Update
 {
-    public class CustomerUpdateCommandHandler : IRequestHandler<CustomerUpdateCommand, Response<Guid>>
+    public class CustomerUpdateCommandHandler : IRequestHandler<CustomerUpdateCommand, Response<int>>
     {
         private readonly ITenantService _tenantService;
         private readonly IMapper _mapper;
@@ -20,7 +20,7 @@ namespace CRM.Application.Features.Customers.Commands.Update
             _currentUserService = currentUserService;
         }
 
-        public async Task<Response<Guid>> Handle(CustomerUpdateCommand request, CancellationToken cancellationToken)
+        public async Task<Response<int>> Handle(CustomerUpdateCommand request, CancellationToken cancellationToken)
         {
             var dbContext = await _tenantService.GetDbInstance(cancellationToken);
 
@@ -28,7 +28,7 @@ namespace CRM.Application.Features.Customers.Commands.Update
 
             if (customer == null)
             {
-                return new Response<Guid>(Guid.Empty, "Müşteri bulunamadı.");
+                return new Response<int>(0, "Müşteri bulunamadı.");
             }
 
             // Güncelleme işlemleri
@@ -47,7 +47,7 @@ namespace CRM.Application.Features.Customers.Commands.Update
 
             await dbContext.SaveChangesAsync(cancellationToken);
 
-            return new Response<Guid>(customer.Id, "Müşteri başarıyla güncellendi.");
+            return new Response<int>(customer.Id, "Müşteri başarıyla güncellendi.");
         }
 
     }

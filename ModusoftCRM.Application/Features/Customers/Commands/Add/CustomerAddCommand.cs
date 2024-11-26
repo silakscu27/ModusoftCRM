@@ -4,7 +4,7 @@ using ModusoftCRM.Domain.Common;
 
 namespace CRM.Application.Customers.Commands
 {
-    public class CustomerAddCommand : IRequest<Response<Guid>>
+    public class CustomerAddCommand : IRequest<Response<int>>
     {
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
