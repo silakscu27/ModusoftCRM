@@ -2,7 +2,7 @@
 
 namespace ModusoftCRM.Domain.Entities
 {
-    public class Customer : EntityBase<Guid>
+    public class Customer : EntityBase<int>
     {
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }

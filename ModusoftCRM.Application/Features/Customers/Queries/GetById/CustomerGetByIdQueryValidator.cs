@@ -21,7 +21,7 @@ namespace ModusoftCRM.Application.Features.Customers.Queries.GetById
                 .WithMessage("Seçili müşteri bulunamadı.");
         }
 
-        private Task<bool> AnyCustomerAsync(Guid id, CancellationToken cancellationToken)
+        private Task<bool> AnyCustomerAsync(int id, CancellationToken cancellationToken)
         {
             return _context.Customers.AnyAsync(x => x.Id == id, cancellationToken);
         }

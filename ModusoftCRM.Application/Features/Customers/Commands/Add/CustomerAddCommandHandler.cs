@@ -7,7 +7,7 @@ using ModusoftCRM.Domain.Entities;
 
 namespace CRM.Application.Features.Customers.Commands.Add
 {
-    public class CustomerAddCommandHandler : IRequestHandler<CustomerAddCommand, Response<Guid>>
+    public class CustomerAddCommandHandler : IRequestHandler<CustomerAddCommand, Response<int>>
     {
         private readonly ITenantService _tenantService;
         private readonly IMapper _mapper;
@@ -20,7 +20,7 @@ namespace CRM.Application.Features.Customers.Commands.Add
             _currentUserService = currentUserService;
         }
 
-        public async Task<Response<Guid>> Handle(CustomerAddCommand request, CancellationToken cancellationToken)
+        public async Task<Response<int>> Handle(CustomerAddCommand request, CancellationToken cancellationToken)
         {
             var dbContext = await _tenantService.GetDbInstance(cancellationToken);
 
@@ -33,7 +33,7 @@ namespace CRM.Application.Features.Customers.Commands.Add
 
             await dbContext.SaveChangesAsync(cancellationToken);
 
-            return new Response<Guid>(customer.Id, "Müşteri başarıyla eklenmiştir.");
+            return new Response<int>(customer.Id, "Müşteri başarıyla eklenmiştir.");
         }
     }
 }

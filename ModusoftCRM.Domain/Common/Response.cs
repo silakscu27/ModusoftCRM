@@ -2,7 +2,7 @@
 {
     public class Response<T>
     {
-        public Response()
+        public Response(Guid id)
         {
             Errors = new List<string>();
         }

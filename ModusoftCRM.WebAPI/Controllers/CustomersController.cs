@@ -35,16 +35,16 @@ namespace ModusoftCRM.WebApi.Controllers
             return Ok(customers); 
         }
 
-        [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetByIdAsync(int id, CancellationToken cancellationToken)
         {
             var request = new CustomerGetByIdQuery(id);
             var response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
         }
 
-        [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> DeleteByIdAsync(Guid id, CancellationToken cancellationToken)
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteByIdAsync(int id, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(id, cancellationToken);
             return Ok(response);
