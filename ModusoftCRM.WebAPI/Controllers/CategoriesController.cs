@@ -1,12 +1,10 @@
-﻿using Azure.Core;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ModusoftCRM.Application.Features.Categories.Commands.Add;
 using ModusoftCRM.Application.Features.Categories.Commands.Update;
 using ModusoftCRM.Application.Features.Categories.Queries.GetAll;
 using ModusoftCRM.Application.Features.Categories.Queries.GetById;
 using ModusoftCRM.WebAPI.Abstractions;
-using TS.Result;
 
 namespace ModusoftCRM.WebApi.Controllers
 {
@@ -31,12 +29,12 @@ namespace ModusoftCRM.WebApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetByIdAsync(CategoryGetByIdQuery request, CancellationToken cancellationToken)
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
+            var request = new CategoryGetByIdQuery(id);
             var response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
-
         }
 
 
