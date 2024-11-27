@@ -18,6 +18,7 @@ namespace ModusoftCRM.Infrastructure.Context
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerType> CustomerTypes { get; set; }
 
         public async Task<IApplicationDbContext> GetDbInstance(string tenantIdentifier, CancellationToken cancellationToken)
         {
