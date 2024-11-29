@@ -1,8 +1,7 @@
 ﻿using Finbuckle.MultiTenant;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using CRM.Domain.Entities;
-
+using ModusoftCRM.Domain.Entities;
 namespace CRM.Infrastructure.Persistence.Configurations.Application
 {
     public class CompanyDetailConfiguration : IEntityTypeConfiguration<CompanyDetail>
