@@ -2,7 +2,7 @@
 
 namespace ModusoftCRM.Domain.Entities
 {
-    public class CompanyDetail : EntityBase<int> 
+    public class CompanyDetail : EntityBase<int>
     {
         public string Name { get; set; } = string.Empty;
         public string? LegalName { get; set; }
@@ -11,6 +11,5 @@ namespace ModusoftCRM.Domain.Entities
         public string? LegalAddress { get; set; }
         public string? Email { get; set; }
         public bool IsDefault { get; set; }
-
     }
 }
