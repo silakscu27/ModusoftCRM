@@ -12,8 +12,8 @@ using ModusoftCRM.Infrastructure.Context;
 namespace ModusoftCRM.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241201194613_mg3")]
-    partial class mg3
+    [Migration("20241202073343_mg1")]
+    partial class mg1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

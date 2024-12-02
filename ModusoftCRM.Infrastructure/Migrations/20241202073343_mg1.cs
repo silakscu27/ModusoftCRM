@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ModusoftCRM.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class mg3 : Migration
+    public partial class mg1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -126,6 +126,12 @@ namespace ModusoftCRM.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "CustomerTypes");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }
