@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ModusoftCRM.Application.Features.Employees.Commands.Add;
 using ModusoftCRM.Application.Features.Employees.Commands.Update;
 using ModusoftCRM.Application.Features.Employees.Queries.GetAll;
+using ModusoftCRM.Application.Features.Employees.Queries.GetById;
 using ModusoftCRM.WebAPI.Abstractions;
 
 namespace ModusoftCRM.WebApi.Controllers
@@ -34,6 +35,14 @@ namespace ModusoftCRM.WebApi.Controllers
         {
             var employees = await _mediator.Send(new EmployeeGetAllQuery(), cancellationToken);
             return Ok(employees);
+        }
+
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+        {
+            var request = new EmployeeGetByIdQuery(id);
+            var response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
         }
 
         [HttpDelete("{id:guid}")]
