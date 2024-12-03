@@ -4,6 +4,7 @@ using CRM.Application.Features.CompanyDetails.Commands.Add;
 using CRM.Application.Features.CompanyDetails.Commands.Update;
 using ModusoftCRM.Application.Features.Categories.Commands.Add;
 using ModusoftCRM.Application.Features.Categories.Commands.Update;
+using ModusoftCRM.Application.Features.Employees.Commands.Add;
 using ModusoftCRM.Domain.Entities;
 
 namespace ModusoftCRM.Application.Mapping
@@ -20,6 +21,8 @@ namespace ModusoftCRM.Application.Mapping
 
             CreateMap<CompanyDetailAddCommand, CompanyDetail>();
             CreateMap<CompanyDetailUpdateCommand, CompanyDetail>();
+
+            CreateMap<EmployeeAddCommand, Employee>();
         }
     }
 }
