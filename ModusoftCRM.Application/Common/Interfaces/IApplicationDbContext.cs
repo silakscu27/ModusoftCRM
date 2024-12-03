@@ -9,6 +9,7 @@ namespace ModusoftCRM.Application.Common.Interfaces
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerType> CustomerTypes { get; set; }
         public DbSet<CompanyDetail> CompanyDetails { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         int SaveChanges();
     }
