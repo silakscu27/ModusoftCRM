@@ -5,6 +5,7 @@ using CRM.Application.Features.CompanyDetails.Commands.Update;
 using ModusoftCRM.Application.Features.Categories.Commands.Add;
 using ModusoftCRM.Application.Features.Categories.Commands.Update;
 using ModusoftCRM.Application.Features.Employees.Commands.Add;
+using ModusoftCRM.Application.Features.Employees.Commands.Update;
 using ModusoftCRM.Domain.Entities;
 
 namespace ModusoftCRM.Application.Mapping
@@ -23,6 +24,16 @@ namespace ModusoftCRM.Application.Mapping
             CreateMap<CompanyDetailUpdateCommand, CompanyDetail>();
 
             CreateMap<EmployeeAddCommand, Employee>();
+            CreateMap<CompanyDetailUpdateCommand, CompanyDetail>();
+
+            CreateMap<EmployeeUpdateCommand, Employee>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))
+                .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))
+                .ForMember(dest => dest.MobilePhoneNumber, opt => opt.MapFrom(src => src.MobilePhoneNumber))
+                .ForMember(dest => dest.WorkPhoneNumber, opt => opt.MapFrom(src => src.WorkPhoneNumber))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+                .ForMember(dest => dest.Department, opt => opt.MapFrom(src => src.DepartmentId));
         }
     }
 }
