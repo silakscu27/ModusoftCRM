@@ -13,5 +13,6 @@ namespace ModusoftCRM.Domain.Entities
         public string? WorkPhoneNumber { get; set; }
         public string Email { get; set; } = string.Empty;
         public virtual Department? Department { get; set; }
+        public int? DepartmentId { get; set; }
     }
 }
