@@ -1,4 +1,5 @@
-﻿namespace ModusoftCRM.Domain.Common
+﻿
+namespace ModusoftCRM.Domain.Common
 {
     public interface IEntityBase<TKey>
     {
