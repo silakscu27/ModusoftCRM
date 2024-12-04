@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModusoftCRM.Application.Features.Employees.Queries.GetAll
 {
-    internal class EmployeeGetAllDto
+    public class EmployeeGetAllDto
     {
     }
 }
