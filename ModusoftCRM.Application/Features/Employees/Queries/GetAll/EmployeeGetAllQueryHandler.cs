@@ -22,9 +22,9 @@ namespace ModusoftCRM.Application.Features.Employees.Queries.GetAll
 
             return await dbContext
                 .Employees
-                .AsNoTracking()  
-                .Select(x => _mapper.Map<EmployeeGetAllDto>(x))  
-                .ToListAsync(cancellationToken);  
+                .AsNoTracking()
+                .Select(x => _mapper.Map<EmployeeGetAllDto>(x))
+                .ToListAsync(cancellationToken);
         }
     }
 }
