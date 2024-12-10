@@ -22,6 +22,7 @@ namespace ModusoftCRM.Infrastructure.Context
         public DbSet<CompanyDetail> CompanyDetails { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
         public async Task<IApplicationDbContext> GetDbInstance(string tenantIdentifier, CancellationToken cancellationToken)
         {
