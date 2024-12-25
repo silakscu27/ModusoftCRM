@@ -8,6 +8,8 @@ using ModusoftCRM.Application.Features.Departments.Commands.Add;
 using ModusoftCRM.Application.Features.Departments.Commands.Update;
 using ModusoftCRM.Application.Features.Employees.Commands.Add;
 using ModusoftCRM.Application.Features.Employees.Commands.Update;
+using ModusoftCRM.Application.Features.Franchises.Commands.Add;
+using ModusoftCRM.Application.Features.Franchises.Commands.Update;
 using ModusoftCRM.Application.Features.Products.Commands.Add;
 using ModusoftCRM.Application.Features.Products.Commands.Update;
 using ModusoftCRM.Domain.Entities;
@@ -43,6 +45,9 @@ namespace ModusoftCRM.Application.Mapping
 
             CreateMap<ProductAddCommand, Product>();
             CreateMap<ProductUpdateCommand, Product>();
+
+            CreateMap<FranchiseAddCommand, Franchise>();
+            CreateMap<FranchiseUpdateCommand, Franchise>();
         }
     }
 }
