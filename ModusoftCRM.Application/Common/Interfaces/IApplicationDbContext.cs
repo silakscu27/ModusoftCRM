@@ -15,6 +15,7 @@ namespace ModusoftCRM.Application.Common.Interfaces
         public DbSet<Product> Products { get; set; }
         public DbSet<FranchiseType> FranchiseTypes { get; set; }
         public DbSet<Franchise> Franchises { get; set; }
+        public DbSet<FranchiseRepresentative> FranchiseRepresentatives { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         int SaveChanges();
     }
