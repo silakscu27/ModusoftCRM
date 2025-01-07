@@ -4,6 +4,10 @@ using CRM.Application.Features.CompanyDetails.Commands.Add;
 using CRM.Application.Features.CompanyDetails.Commands.Update;
 using ModusoftCRM.Application.Features.Categories.Commands.Add;
 using ModusoftCRM.Application.Features.Categories.Commands.Update;
+using ModusoftCRM.Application.Features.Cities.Commands.Add;
+using ModusoftCRM.Application.Features.Cities.Commands.Update;
+using ModusoftCRM.Application.Features.Countries.Commands.Add;
+using ModusoftCRM.Application.Features.Countries.Commands.Update;
 using ModusoftCRM.Application.Features.Departments.Commands.Add;
 using ModusoftCRM.Application.Features.Departments.Commands.Update;
 using ModusoftCRM.Application.Features.Employees.Commands.Add;
@@ -48,6 +52,12 @@ namespace ModusoftCRM.Application.Mapping
 
             CreateMap<FranchiseAddCommand, Franchise>();
             CreateMap<FranchiseUpdateCommand, Franchise>();
+
+            CreateMap<CountryAddCommand, Country>();
+            CreateMap<CountryUpdateCommand, Country>();
+
+            CreateMap<CityAddCommand, City>();
+            CreateMap<CityUpdateCommand, City>();
         }
     }
 }

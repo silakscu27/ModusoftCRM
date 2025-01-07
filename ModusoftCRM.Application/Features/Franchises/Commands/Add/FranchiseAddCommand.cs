@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using ModusoftCRM.Domain.Common;
+using ModusoftCRM.Domain.Enums;
 
 namespace ModusoftCRM.Application.Features.Franchises.Commands.Add
 {
@@ -21,5 +22,6 @@ namespace ModusoftCRM.Application.Features.Franchises.Commands.Add
         public string? LinkedIn { get; set; }
         public Guid FranchiseTypeId { get; set; }
         public Guid CustomerId { get; set; }
+        public FranchiseTrustLevel TrustLevel { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using ModusoftCRM.Domain.Common;
+using ModusoftCRM.Domain.Enums;
 
 namespace ModusoftCRM.Application.Features.Franchises.Commands.Update
 {
@@ -20,7 +21,8 @@ namespace ModusoftCRM.Application.Features.Franchises.Commands.Update
         public string? Picture { get; set; }
         public string? Website { get; set; }
         public string? LinkedIn { get; set; }
-        public Guid FranchiseTypeId { get; set; }
-        public Guid CustomerId { get; set; }
+        public FranchiseTrustLevel TrustLevel { get; set; }
+        public int FranchiseTypeId { get; set; }
+        public int CustomerId { get; set; }
     }
 }
