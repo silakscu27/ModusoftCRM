@@ -8,8 +8,8 @@ namespace ModusoftCRM.Domain.Entities
         public string? Description { get; set; }
         public string? ErpId { get; set; }
         public string? Picture { get; set; }
-        
-        // public ICollection<Franchise> Franchises { get; set; }
+
+        public ICollection<Franchise> Franchises { get; set; } = null!;
 
     }
 }
