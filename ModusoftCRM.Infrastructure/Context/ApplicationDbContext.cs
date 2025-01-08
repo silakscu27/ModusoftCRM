@@ -28,6 +28,7 @@ namespace ModusoftCRM.Infrastructure.Context
         public DbSet<FranchiseType> FranchiseTypes { get; set; }
         public DbSet<Franchise> Franchises { get; set; }
         public DbSet<FranchiseRepresentative> FranchiseRepresentatives { get; set; }
+        public DbSet<FranchiseRepresentativeHistory> FranchiseRepresentativeHistories { get; set; }
 
         public async Task<IApplicationDbContext> GetDbInstance(string tenantIdentifier, CancellationToken cancellationToken)
         {
