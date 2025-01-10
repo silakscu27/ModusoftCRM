@@ -28,7 +28,8 @@ namespace ModusoftCRM.Infrastructure.Context
         public DbSet<FranchiseType> FranchiseTypes { get; set; }
         public DbSet<Franchise> Franchises { get; set; }
         public DbSet<FranchiseRepresentative> FranchiseRepresentatives { get; set; }
-        public DbSet<FranchiseRepresentativeHistory> FranchiseRepresentativeHistories { get; set; }
+        public DbSet<FranchiseRepresentativeHistory> FranchiseRepresentativeHistories { get; set; }  // BU SATIR EKLENDİ
+        public DbSet<ProductVariantUnitPrice> ProductVariantUnitPrices { get; set; }
 
         public async Task<IApplicationDbContext> GetDbInstance(string tenantIdentifier, CancellationToken cancellationToken)
         {
@@ -49,7 +50,7 @@ namespace ModusoftCRM.Infrastructure.Context
         {
             builder.ApplyConfigurationsFromAssembly(typeof(DependencyInjection).Assembly);
 
-            builder.Ignore<IdentityUserLogin<Guid>>();
+            builder.Ignore<IdentityUserLogin<Guid>>(); 
             builder.Ignore<IdentityRoleClaim<Guid>>();
             builder.Ignore<IdentityUserToken<Guid>>();
             builder.Ignore<IdentityUserRole<Guid>>();
