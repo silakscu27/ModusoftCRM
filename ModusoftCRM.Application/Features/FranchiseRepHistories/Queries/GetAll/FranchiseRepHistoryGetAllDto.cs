@@ -1,9 +1,6 @@
-﻿using MediatR;
-using ModusoftCRM.Domain.Common;
-
-namespace ModusoftCRM.Application.Features.FranchiseRepHistories.Commands.Update
+﻿namespace ModusoftCRM.Application.Features.FranchiseRepHistories.Queries.GetAll
 {
-    public class FranchiseRepHistoryUpdateCommand : IRequest<Response<int>>
+    public class FranchiseRepHistoryGetAllDto
     {
         public int Id { get; set; }
         public Guid FranchiseRepresentativeId { get; set; }
