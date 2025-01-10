@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using ModusoftCRM.Domain.Common;
 
 namespace ModusoftCRM.Application.Features.FranchiseRepHistories.Commands.Update
 {
-    internal class FranchiseRepHistoryUpdateCommand
+    public class FranchiseRepHistoryUpdateCommand : IRequest<Response<int>>
     {
+        public int Id { get; set; }
+        public Guid FranchiseRepresentativeId { get; set; }
+        public Guid FranchiseId { get; set; }
+        public DateTimeOffset From { get; set; }
+        public DateTimeOffset To { get; set; }
+        public string Role { get; set; } = string.Empty;
+        public string? Description { get; set; }
     }
 }
