@@ -2,6 +2,7 @@
 using CRM.Application.Customers.Commands;
 using CRM.Application.Features.CompanyDetails.Commands.Add;
 using CRM.Application.Features.CompanyDetails.Commands.Update;
+using CRM.Application.Features.CustomerTypes.Commands.Add;
 using ModusoftCRM.Application.Features.Categories.Commands.Add;
 using ModusoftCRM.Application.Features.Categories.Commands.Update;
 using ModusoftCRM.Application.Features.Cities.Commands.Add;
@@ -12,6 +13,9 @@ using ModusoftCRM.Application.Features.Departments.Commands.Add;
 using ModusoftCRM.Application.Features.Departments.Commands.Update;
 using ModusoftCRM.Application.Features.Employees.Commands.Add;
 using ModusoftCRM.Application.Features.Employees.Commands.Update;
+using ModusoftCRM.Application.Features.FranchiseRepHistories.Commands.Add;
+using ModusoftCRM.Application.Features.FranchiseRepHistories.Commands.Update;
+using ModusoftCRM.Application.Features.FranchiseRepresentatives.Commands.Add;
 using ModusoftCRM.Application.Features.Franchises.Commands.Add;
 using ModusoftCRM.Application.Features.Franchises.Commands.Update;
 using ModusoftCRM.Application.Features.Products.Commands.Add;
@@ -30,19 +34,13 @@ namespace ModusoftCRM.Application.Mapping
             CreateMap<CustomerAddCommand, Customer>();
             CreateMap<CustomerUpdateCommand, Customer>();
 
+            CreateMap<CustomerTypeAddCommand, CustomerType>();
+
             CreateMap<CompanyDetailAddCommand, CompanyDetail>();
             CreateMap<CompanyDetailUpdateCommand, CompanyDetail>();
 
             CreateMap<EmployeeAddCommand, Employee>();
-
-            CreateMap<EmployeeUpdateCommand, Employee>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))
-                .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))
-                .ForMember(dest => dest.MobilePhoneNumber, opt => opt.MapFrom(src => src.MobilePhoneNumber))
-                .ForMember(dest => dest.WorkPhoneNumber, opt => opt.MapFrom(src => src.WorkPhoneNumber))
-                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Department, opt => opt.MapFrom(src => src.DepartmentId));
+            CreateMap<EmployeeUpdateCommand, Employee>();
 
             CreateMap<DepartmentAddCommand, Department>();
             CreateMap<DepartmentUpdateCommand, Department>();
@@ -53,11 +51,16 @@ namespace ModusoftCRM.Application.Mapping
             CreateMap<FranchiseAddCommand, Franchise>();
             CreateMap<FranchiseUpdateCommand, Franchise>();
 
+            CreateMap<FranchiseRepresentativeAddCommand, FranchiseRepresentative>();
+
             CreateMap<CountryAddCommand, Country>();
             CreateMap<CountryUpdateCommand, Country>();
 
             CreateMap<CityAddCommand, City>();
             CreateMap<CityUpdateCommand, City>();
+
+            CreateMap<FranchiseRepHistoryAddCommand, FranchiseRepresentativeHistory>();
+            CreateMap<FranchiseRepHistoryUpdateCommand, FranchiseRepresentativeHistory>();
         }
     }
 }
