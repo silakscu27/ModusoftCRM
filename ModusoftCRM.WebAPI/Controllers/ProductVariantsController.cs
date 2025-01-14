@@ -21,6 +21,13 @@ namespace ModusoftCRM.WebApi.Controllers
             return Ok(response);
         }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync(ProductVariantUpdateCommand request, CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllAsync(ProductVariantGetAllQuery request, CancellationToken cancellationToken)
         {
@@ -32,13 +39,6 @@ namespace ModusoftCRM.WebApi.Controllers
         public async Task<IActionResult> GetByIdAsync(int id, CancellationToken cancellationToken)
         {
             var request = new ProductVariantGetByIdQuery(id);
-            var response = await _mediator.Send(request, cancellationToken);
-            return Ok(response);
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> UpdateAsync(ProductVariantUpdateCommand request, CancellationToken cancellationToken)
-        {
             var response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
         }
