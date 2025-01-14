@@ -25,6 +25,7 @@ namespace ModusoftCRM.Infrastructure.Context
         public DbSet<Country> Countries { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductVariant> ProductVariants { get; set; }
         public DbSet<FranchiseType> FranchiseTypes { get; set; }
         public DbSet<Franchise> Franchises { get; set; }
         public DbSet<FranchiseRepresentative> FranchiseRepresentatives { get; set; }
