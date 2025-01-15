@@ -66,7 +66,7 @@ namespace ModusoftCRM.Infrastructure.Persistence.Configurations.Application
             builder.HasOne(o => o.Project)
                 .WithMany(p => p.Orders)
                 .HasForeignKey(o => o.ProjectId)
-                .OnDelete(DeleteBehavior.Cascade); 
+                .OnDelete(DeleteBehavior.SetNull); 
 
             builder.HasMany(o => o.OrderItems)
                 .WithOne(oi => oi.Order)
