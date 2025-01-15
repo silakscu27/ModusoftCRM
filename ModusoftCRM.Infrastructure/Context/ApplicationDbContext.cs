@@ -29,8 +29,10 @@ namespace ModusoftCRM.Infrastructure.Context
         public DbSet<FranchiseType> FranchiseTypes { get; set; }
         public DbSet<Franchise> Franchises { get; set; }
         public DbSet<FranchiseRepresentative> FranchiseRepresentatives { get; set; }
-        public DbSet<FranchiseRepresentativeHistory> FranchiseRepresentativeHistories { get; set; }  // BU SATIR EKLENDİ
+        public DbSet<FranchiseRepresentativeHistory> FranchiseRepresentativeHistories { get; set; } 
         public DbSet<ProductVariantUnitPrice> ProductVariantUnitPrices { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         public async Task<IApplicationDbContext> GetDbInstance(string tenantIdentifier, CancellationToken cancellationToken)
         {

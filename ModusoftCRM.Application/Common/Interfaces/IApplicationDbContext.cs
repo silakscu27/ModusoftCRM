@@ -20,6 +20,8 @@ namespace ModusoftCRM.Application.Common.Interfaces
         public DbSet<FranchiseRepresentative> FranchiseRepresentatives { get; set; }
         public DbSet<FranchiseRepresentativeHistory> FranchiseRepresentativeHistories { get; set; }
         public DbSet<ProductVariantUnitPrice> ProductVariantUnitPrices { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         int SaveChanges();
     }
