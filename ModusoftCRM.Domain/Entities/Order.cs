@@ -7,8 +7,8 @@ namespace ModusoftCRM.Domain.Entities
     {
         public Guid FranchiseId { get; set; }
         public Franchise Franchise { get; set; } = null!; 
-        //public string? ProjectId { get; set; }
-        //public Project? Project { get; set; }
+        public string? ProjectId { get; set; }
+        public Project? Project { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? No { get; set; }

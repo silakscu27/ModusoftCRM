@@ -15,6 +15,9 @@ namespace ModusoftCRM.Infrastructure.Persistence.Configurations.Application
             // FranchiseId
             builder.Property(o => o.FranchiseId).IsRequired();
 
+            // ProjectId
+            builder.Property(o => o.ProjectId).IsRequired();
+
             // Name
             builder.Property(o => o.Name).HasMaxLength(200).IsRequired(false);
 
@@ -59,6 +62,11 @@ namespace ModusoftCRM.Infrastructure.Persistence.Configurations.Application
                 .WithMany()
                 .HasForeignKey(o => o.FranchiseId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(o => o.Project)
+                .WithMany(p => p.Orders)
+                .HasForeignKey(o => o.ProjectId)
+                .OnDelete(DeleteBehavior.Cascade); 
 
             builder.HasMany(o => o.OrderItems)
                 .WithOne(oi => oi.Order)
