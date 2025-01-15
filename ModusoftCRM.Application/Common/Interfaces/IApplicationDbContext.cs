@@ -22,6 +22,9 @@ namespace ModusoftCRM.Application.Common.Interfaces
         public DbSet<ProductVariantUnitPrice> ProductVariantUnitPrices { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Proposal> Proposals { get; set; }
+        public DbSet<ProposalItem> ProposalItems { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         int SaveChanges();
     }
