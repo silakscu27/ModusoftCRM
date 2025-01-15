@@ -18,8 +18,16 @@ using ModusoftCRM.Application.Features.FranchiseRepHistories.Commands.Update;
 using ModusoftCRM.Application.Features.FranchiseRepresentatives.Commands.Add;
 using ModusoftCRM.Application.Features.Franchises.Commands.Add;
 using ModusoftCRM.Application.Features.Franchises.Commands.Update;
+using ModusoftCRM.Application.Features.OrderItems.Commands.Add;
+using ModusoftCRM.Application.Features.OrderItems.Commands.Update;
+using ModusoftCRM.Application.Features.Orders.Commands.Add;
+using ModusoftCRM.Application.Features.Orders.Commands.Update;
 using ModusoftCRM.Application.Features.Products.Commands.Add;
 using ModusoftCRM.Application.Features.Products.Commands.Update;
+using ModusoftCRM.Application.Features.ProductVariants.Commands.Add;
+using ModusoftCRM.Application.Features.ProductVariants.Commands.Update;
+using ModusoftCRM.Application.Features.Projects.Commands.Add;
+using ModusoftCRM.Application.Features.Projects.Commands.Update;
 using ModusoftCRM.Domain.Entities;
 
 namespace ModusoftCRM.Application.Mapping
@@ -48,6 +56,9 @@ namespace ModusoftCRM.Application.Mapping
             CreateMap<ProductAddCommand, Product>();
             CreateMap<ProductUpdateCommand, Product>();
 
+            CreateMap<ProductVariantAddCommand, ProductVariant>();
+            CreateMap<ProductVariantUpdateCommand, ProductVariant>();
+
             CreateMap<FranchiseAddCommand, Franchise>();
             CreateMap<FranchiseUpdateCommand, Franchise>();
 
@@ -61,6 +72,15 @@ namespace ModusoftCRM.Application.Mapping
 
             CreateMap<FranchiseRepHistoryAddCommand, FranchiseRepresentativeHistory>();
             CreateMap<FranchiseRepHistoryUpdateCommand, FranchiseRepresentativeHistory>();
+
+            CreateMap<OrderAddCommand, Order>();
+            CreateMap<OrderUpdateCommand, Order>();
+
+            CreateMap<OrderItemAddCommand, OrderItem>();
+            CreateMap<OrderItemUpdateCommand, OrderItem>();
+
+            CreateMap<ProjectAddCommand, Project>();
+            CreateMap<ProjectUpdateCommand, Project>();
         }
     }
 }
