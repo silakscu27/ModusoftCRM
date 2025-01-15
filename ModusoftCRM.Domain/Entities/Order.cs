@@ -22,6 +22,6 @@ namespace ModusoftCRM.Domain.Entities
         public int TaxRate { get; set; }
         public decimal TotalAmount { get; set; }
         public decimal FinalAmount { get; set; }
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>(); // Varsayılan değer atandı.
+        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     }
 }
